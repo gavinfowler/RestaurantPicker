@@ -25,7 +25,6 @@ export default class Home extends Component {
     }
 
     render() {
-      var temp = YelpService.getBusinesses('84321','2');
         return (
           <View style={styles.container}>
             <Text>
