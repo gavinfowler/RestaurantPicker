@@ -8,6 +8,8 @@ import {
   View
 } from 'react-native';
 
+import YelpService from '../api/yelp.service'
+
 export default class Home extends Component {
     static navigationOptions = {
         title: 'Home'
@@ -23,6 +25,7 @@ export default class Home extends Component {
     }
 
     render() {
+      var temp = YelpService.getBusinesses('84321','2');
         return (
           <View style={styles.container}>
             <Text>
