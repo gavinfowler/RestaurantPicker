@@ -9,6 +9,7 @@ import {
 } from 'react-native';
 
 import YelpService from '../api/yelp.service'
+import BusinessCard from '../components/BusinessCard';
 
 export default class Home extends Component {
     static navigationOptions = {
@@ -54,6 +55,9 @@ export default class Home extends Component {
             />
             <TouchableOpacity onPress={() => { this.props.navigation.navigate("Pass") }}>
               <Text>Play Game!</Text>
+            </TouchableOpacity>
+            <TouchableOpacity onPress={() => { this.props.navigation.navigate("Picker") }}>
+              <Text>Other button</Text>
             </TouchableOpacity>
           </View>
         );

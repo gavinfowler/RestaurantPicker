@@ -3,7 +3,7 @@
  */
 
 export class Business {
-  constructor(name, image, price, address, phone, rating) {
+  constructor(name, image, price, rating, address, phone) {
       this.name = name;
       this.image_url = image;
       this.price = price;
