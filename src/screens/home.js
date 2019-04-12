@@ -12,6 +12,7 @@ import { Container, Button, Icon, Title, Left, Right, Subtitle, Header, Content,
 
 import FloatingLabelExample from '../components/TextInput';
 import YelpService from '../api/yelp.service'
+import BusinessCard from '../components/BusinessCard';
 
 export default class Home extends Component {
     static navigationOptions = {
@@ -28,7 +29,6 @@ export default class Home extends Component {
     }
 
     render() {
-      var temp = YelpService.getBusinesses('84321','2');
         return (
           <Container>
             <Header>
@@ -61,6 +61,9 @@ export default class Home extends Component {
                 <Text>{"\n"}</Text>
                 <Button style={{ alignSelf: 'center' }}>
                   <Text>              Submit!              </Text>
+                </Button>
+                <Button style={{ alignSelf: 'center' }} onPress={() => { this.props.navigation.navigate("Picker") }}>
+                  <Text>              Other!              </Text>
                 </Button>
 						</Container>
           </Container>

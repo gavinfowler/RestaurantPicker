@@ -19,8 +19,16 @@ let YelpService = class YelpService {
             .then((response) => {
                 let items = [];
                 response.businesses.forEach(element => {
-                    items.push(new Business(element.name, element.rating));
+                    items.push(new Business(
+                      element.name, 
+                      element.image_url, 
+                      element.price, 
+                      element.rating, 
+                      element.location.display_address, 
+                      element.display_phone
+                    ));
                 });
+                console.log(items);
                 resolve(items);
             })
             .catch((error) => {
