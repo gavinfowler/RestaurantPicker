@@ -11,6 +11,7 @@ import {
 import { Container, Button, Icon, Title, Left, Right, Subtitle, Header, Content, Form, Item, Input, Label } from 'native-base';
 
 import FloatingLabelExample from '../components/TextInput';
+import YelpService from '../api/yelp.service'
 
 export default class Home extends Component {
     static navigationOptions = {
@@ -27,6 +28,7 @@ export default class Home extends Component {
     }
 
     render() {
+      var temp = YelpService.getBusinesses('84321','2');
         return (
           <Container>
             <Header>
