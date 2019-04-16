@@ -23,7 +23,7 @@ export default class BusinessCard extends Component {
             <Text note>{this.props.data.rating}</Text>
           </Body>
         </CardItem>
-        <CardItem cardBody>
+        <CardItem cardBody button onPress={()=>this.props.pressed(this.props.dataKey)}>
           <Image source={{uri: this.props.data.image_url}} style={{height: 200, width: null, flex: 1}}/>
         </CardItem>
         <CardItem>

@@ -28,7 +28,6 @@ let YelpService = class YelpService {
                       element.display_phone
                     ));
                 });
-                console.log(items);
                 resolve(items);
             })
             .catch((error) => {
