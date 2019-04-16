@@ -32,7 +32,9 @@ export default class restaurantDisplay extends Component {
   }
 
   componentWillMount(){
-    YelpService.getBusinesses(84321,SIZE).then( results =>{
+    zipCode = this.props.navigation.getParam('areaCode');
+    numPeople = this.props.navigation.getParam('numberOfPlayers');
+    YelpService.getBusinesses(zipCode,numPeople+1).then( results =>{
       this.setState({businesses:results})
     }).catch(error => {
       console.log('Something went wrong!');
@@ -41,15 +43,22 @@ export default class restaurantDisplay extends Component {
 
   renderBusinesses(){
     var array = [];
-    for(i=0;i<SIZE;i++){
-      array.push(<BusinessCard key={i} data={this.state.businesses[i]}/>);
+    for(i=0;i<this.state.businesses.length;i++){
+      array.push(<BusinessCard key={i} dataKey={i} data={this.state.businesses[i]} pressed={(index)=>this.deleteOne(index)}/>);
     }
     return(array);
   }
 
+  deleteOne(index){
+    console.log(index);
+    array=this.state.businesses;
+    array.splice(index, 1);
+    console.log(array);
+    this.setState({businesses:array});
+  }
+
   render(){
     if(this.state.businesses.length > 0){
-      console.log(this.state.businesses.length);
       return(
         <Container>
           <Content>

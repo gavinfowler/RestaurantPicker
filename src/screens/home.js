@@ -28,6 +28,10 @@ export default class Home extends Component {
         }
     }
 
+    zipChange(value){
+      this.setState({areaCode:value});
+    }
+
     render() {
         return (
           <Container>
@@ -44,7 +48,7 @@ export default class Home extends Component {
               want to eat at  {"\n"}
               4. Once everyone has taken a turn, the remaining restaurant will be the chosen restaurant!
             </Label>
-            <FloatingLabelExample/>
+            <FloatingLabelExample pressed={(text) => this.zipChange(text)}/>
             <Text>{"\n"}</Text>
             <Text>{"\n"}</Text>
             <Container style={{ flex: 1, alignItems: 'center' }}>
@@ -59,11 +63,8 @@ export default class Home extends Component {
                 </Button>
                 <Text>{"\n"}</Text>
                 <Text>{"\n"}</Text>
-                <Button style={{ alignSelf: 'center' }}>
+                <Button style={{ alignSelf: 'center' }} onPress={() => { this.props.navigation.navigate("Picker", this.state) }}>
                   <Text>              Submit!              </Text>
-                </Button>
-                <Button style={{ alignSelf: 'center' }} onPress={() => { this.props.navigation.navigate("Picker") }}>
-                  <Text>              Other!              </Text>
                 </Button>
 						</Container>
           </Container>
