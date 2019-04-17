@@ -16,20 +16,31 @@ import BusinessCard from '../components/BusinessCard';
 
 export default class Home extends Component {
     static navigationOptions = {
-        title: 'Home'
+        title: 'Welcome to Restaurant Picker',
+        // headerStyle:{
+        //   backgroundColor: '#FF0000'
+        // }
     }
 
     constructor(props) {
         super(props);
 
         this.state = {
-          areaCode: "Area Code...",
+          areaCode: '',
           numberOfPlayers: 1
         }
     }
 
     zipChange(value){
       this.setState({areaCode:value});
+    }
+
+    checkValidation(){
+      if(this.state.areaCode.length == 0){
+        alert('Please add an area code');
+      } else {
+        this.props.navigation.navigate("Picker", this.state);
+      }
     }
 
     render() {
@@ -63,7 +74,7 @@ export default class Home extends Component {
                 </Button>
                 <Text>{"\n"}</Text>
                 <Text>{"\n"}</Text>
-                <Button style={{ alignSelf: 'center' }} onPress={() => { this.props.navigation.navigate("Picker", this.state) }}>
+                <Button style={{ alignSelf: 'center' }} onPress={() => { this.checkValidation() }}>
                   <Text>              Submit!              </Text>
                 </Button>
 						</Container>
