@@ -5,7 +5,7 @@ import { View, Text } from 'react-native';
 import BusinessCard from '../components/BusinessCard'
 
 import YelpService from '../api/yelp.service';
-import { Container, Content, Header } from 'native-base';
+import { Container, Content, Header, Footer } from 'native-base';
 
 const newRed = '#CA0000';
 
@@ -62,6 +62,9 @@ export default class restaurantDisplay extends Component {
           <Content>
             {this.renderBusinesses()}
           </Content>
+          <Footer style={{backgroundColor:newRed}}>
+            <Text style={{fontSize:20}}>Banner Ad Here</Text>
+          </Footer>
         </Container>
       );
     }
